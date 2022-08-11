@@ -1,16 +1,22 @@
 # -*- coding: utf-8 -*-
 
 # user input
-liczba = int(input("Wprowadź liczbę całkowitą z zakresu od 1 do 100: "))
+while True:
+    try:
+        liczba = int(input("Wprowadź liczbę całkowitą z zakresu od 1 do 100: "))
+    except ValueError:
+        print("Wprowadzony atrybut nie jest liczbą całkowitą.")
+        continue
+    else:
+        break
 
-# first condition - only numbers from 1 to 100
-if liczba < 1 or liczba > 100:
+# first conditions - only integers from 1 to 100
+if 1 <= liczba <= 100:
+    print(liczba)
+else:
     print("Wprowadzono liczbę całkowitą, która nie należy do zakresu 1-100."
           " Działanie programu przerwane.")
     exit()
-
-if liczba >= 1 and liczba <= 100:
-    print(liczba)
 
 # define objects (variables)
 user_input = liczba
@@ -22,12 +28,12 @@ if liczba == 1:
 # while loop with conditions
 while liczba != 1:
     if liczba % 2 == 0:  # liczba parzysta
-        liczba = (liczba / 2)
-        print(int(liczba))
+        liczba = int(liczba / 2)
+        print(liczba)
         lista.append(liczba)
     else:
-        liczba = ((3 * liczba) + 1)
-        print(int(liczba))
+        liczba = 3 * liczba + 1
+        print(liczba)
         lista.append(liczba)
 
 # summary
